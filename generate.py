@@ -16,12 +16,7 @@ for href, word in matches:
     if word not in index:
         index[word] = href
 
-matches_all = re.findall(r'<a href="([^"]+)">(.*?)</a>', index_content)
-for href, word_raw in matches_all:
-    word = re.sub(r'<[^>]+>', '', word_raw).strip()
-    word = html.unescape(word)
-    if not re.match(r'^\[\d+\]$', word) and word not in index and word not in ['index', 'contents', 'first', 'previous', 'next']:
-        index[word] = href
+
 
 def clean_html(text):
     text = text.replace('<em>', '').replace('</em>', '')
@@ -59,7 +54,11 @@ for filename, words in file_to_words.items():
         before = parts[0]
         after = parts[1]
 
-        start_idx = before.rfind('<div align=left>')
+        div_idx = before.rfind('<div align=left>')
+        h_idx = -1
+        m = list(re.finditer(r'<h[1-6]>', before, re.IGNORECASE))
+        if m: h_idx = m[-1].start()
+        start_idx = max(div_idx, h_idx)
         if start_idx == -1:
             start_idx = max(0, len(before) - 100)
 
