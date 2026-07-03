@@ -10,10 +10,10 @@ The documentation text provided by this library is extracted directly from the [
 
 ## Usage
 
-Load the library into your R5RS-compatible Scheme environment (such as CHICKEN Scheme):
+Load the library into your R5RS-compatible Scheme environment (such as CHICKEN, Gauche, MIT Scheme, Guile, etc):
 
 ```scheme
-(load "r5rs-doc.scm")
+(load "./r5rs-doc.scm")
 ```
 
 ### Available Procedures
