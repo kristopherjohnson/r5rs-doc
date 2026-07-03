@@ -5665,7 +5665,6 @@ that follow the group.  For example, the following are errors:
     (define foo x)
 
     (plus foo x)))")
-    ("setcar" . "")
   ))
 
 (define (assoc-ci key alist)

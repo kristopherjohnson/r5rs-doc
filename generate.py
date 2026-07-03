@@ -100,6 +100,8 @@ with open(scm_path, 'w') as f:
     f.write('  `(\n')
 
     for word, doc in file_docs.items():
+        if not doc.strip():
+            continue
         escaped_doc = doc.replace('\\', '\\\\').replace('"', '\\"')
         escaped_word = word.replace('\\', '\\\\').replace('"', '\\"')
         f.write(f'    ("{escaped_word}" . "{escaped_doc}")\n')
