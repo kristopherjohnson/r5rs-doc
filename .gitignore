@@ -1,2 +1,4 @@
-r5rs_HTML/
+HTML/
 .DS_Store
+*.tar.gz
+

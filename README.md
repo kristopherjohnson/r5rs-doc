@@ -45,7 +45,9 @@ Load the library into your R5RS-compatible Scheme environment (such as CHICKEN, 
 
 The `r5rs-doc.scm` file contains the extracted documentation statically embedded as an association list (`*r5rs-docs*`). You don't need any additional tools, dependencies, or parsers—just load the file and the lookups are instantaneous. 
 
-The `generate.py` script is included in this repository and was used to programmatically scrape the R5RS HTML specification and bundle it into pure Scheme code. You can run it via `python3 generate.py` to regenerate the documentation library if needed.
+The `generate.scm` script is included in this repository and was used to programmatically scrape the R5RS HTML specification and bundle it into pure Scheme code. 
+
+If you want to regenerate the documentation library yourself, you can simply run `make`. The `Makefile` will automatically download the original R5RS HTML specification (if it's not already downloaded) and run `generate.scm` to build `r5rs-doc.scm`.
 
 ## License
 
